@@ -1,0 +1,14 @@
+<form method="POST"
+      hx-post="{% url 'contact' %}"
+      hx-target="#form-container"
+      hx-swap="outerHTML">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div id="extra-phones"></div>
+    <button type="button"
+            hx-get="{% url 'add_phone' %}"
+            hx-target="#extra-phones"
+            hx-swap="beforeend">➕ Add Phone</button>
+    <br><br>
+    <button type="submit">Submit</button>
+</form>
